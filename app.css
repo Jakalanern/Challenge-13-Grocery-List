@@ -164,13 +164,13 @@ h1 {
 }
 
 .gbtn img:hover {
-  transform: scale(1.1) rotate(-360deg);
+  transform: scale(1.1) rotate(180deg);
 }
 
 .grocery_box .clear_alert {
   display: none;
   position: absolute;
-  bottom: 75%;
+  top: 10px;
   font-size: 1.15em;
   color: rgb(0, 189, 0);
   padding: 0.25em 1em;
@@ -184,6 +184,17 @@ h1 {
   bottom: 75%;
   font-size: 1.15em;
   color: rgb(219, 0, 0);
+  padding: 0.25em 1em;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.input_alert {
+  display: none;
+  position: fixed;
+  top: 20px;
+  font-size: 1.15em;
+  color: rgb(0, 189, 0);
   padding: 0.25em 1em;
   border-radius: 10px;
   font-weight: 600;

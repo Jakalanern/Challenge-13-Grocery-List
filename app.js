@@ -5,6 +5,7 @@ let groceryItem = document.querySelector(".grocery_item");
 let clearBtn = document.querySelector(".clear_button");
 let clearAlert = document.querySelector(".clear_alert");
 let clearAlert2 = document.querySelector(".clear_alert_2");
+let inputAlert = document.querySelector(".input_alert");
 let items = [];
 let item;
 let newGroceryItem;
@@ -17,15 +18,9 @@ clearBtn.addEventListener("click", function (newGroceryItems) {
     item.remove();
   });
   if (newGroceryItems.length > 0) {
-    clearAlert.style.display = "initial";
-    setTimeout(function () {
-      clearAlert.style.display = "none";
-    }, 1000);
+    clearAlertOne();
   } else {
-    clearAlert2.style.display = "initial";
-    setTimeout(function () {
-      clearAlert2.style.display = "none";
-    }, 1000);
+    clearAlertTwo();
   }
 });
 
@@ -37,6 +32,7 @@ form.addEventListener(
     if (input.value !== "") {
       item = input.value;
       items.push(item);
+      itemInputAlert(item);
       newGroceryItem = groceryItem.cloneNode(true);
       groceryItem.after(newGroceryItem);
       newGroceryItem.style.display = "flex";
@@ -46,30 +42,63 @@ form.addEventListener(
 
       count++;
     } else {
-      alert("Please enter a grocery item");
+      item = "";
+      itemInputAlert(item);
     }
 
     input.value = "";
 
     deleteButtons = document.querySelectorAll(".delete_button");
-    checkButtons = document.querySelectorAll(".check_button");
-
-    checkButtons.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        if (btn.parentElement.parentElement.classList.contains("cross_off")) {
-          btn.parentElement.parentElement.classList.remove("cross_off");
-        } else {
-          btn.parentElement.parentElement.classList.add("cross_off");
-        }
-      });
-    });
 
     deleteButtons.forEach(function (btn) {
       btn.addEventListener("click", function () {
         btn.parentElement.parentElement.remove();
+        let itemName = `-- ${btn.parentElement.parentElement.children[0].innerHTML} Has Been Deleted --`;
+        deleteItemAlert(itemName);
       });
     });
   }
 );
 
 // FUNCTIONS
+
+function itemInputAlert(item) {
+  if (input.value !== "") {
+    inputAlert.innerHTML = `-- ${item} Has Been Added To The List --`;
+    inputAlert.style.display = "initial";
+    inputAlert.style.color = "lime-green";
+    setTimeout(function () {
+      inputAlert.style.display = "none";
+    }, 750);
+  } else if (input.value === "") {
+    inputAlert.innerHTML = `-- Please Enter A Grocery Item --`;
+    inputAlert.style.display = "initial";
+    inputAlert.style.color = "red";
+    setTimeout(function () {
+      inputAlert.style.display = "none";
+    }, 750);
+  }
+}
+
+function deleteItemAlert(itemName) {
+  clearAlert.innerHTML = itemName;
+  clearAlert.style.color = "red";
+  clearAlertOne();
+}
+
+function clearAlertOne() {
+  clearAlert.style.display = "initial";
+  clearAlert.style.color = "lime-green";
+
+  setTimeout(function () {
+    clearAlert.style.display = "none";
+  }, 1000);
+}
+
+function clearAlertTwo() {
+  clearAlert2.style.display = "initial";
+  clearAlert2.style.color = "lime-green";
+  setTimeout(function () {
+    clearAlert2.style.display = "none";
+  }, 1000);
+}
