@@ -1,0 +1,194 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  color: white;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.add_box button {
+  padding: 0.5rem 1rem;
+  font-size: 1.1em;
+  width: 25%;
+
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  transition: background-color 0.1s;
+}
+
+.add_box button:hover {
+  background-color: white;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 4em;
+  border: 2px solid rgba(0, 0, 0, 0.281);
+  border-radius: 1em;
+}
+
+.add_box {
+  width: 750px;
+  height: 250px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+
+  background: rgb(50, 101, 146);
+  border: none;
+  border-radius: 0.5em;
+
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.514);
+}
+
+.add_box form {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.add_box input {
+  font-size: 1.25em;
+  padding: 0.5em 1em;
+  width: 100%;
+
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+.add_box input:focus {
+  outline: none;
+}
+
+.grocery_box {
+  position: relative;
+  margin-top: 2em;
+  padding: 3em;
+  width: 750px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25em;
+
+  background: rgb(174, 216, 253);
+  border: none;
+  border-radius: 0.5em;
+
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.514);
+}
+
+.grocery_box h1 {
+  color: black;
+  margin-bottom: 0.5em;
+}
+
+.clear_button {
+  padding: 0.5rem 1rem;
+  font-size: 1.1em;
+  margin-top: 0.5em;
+
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  transition: background-color 0.1s;
+}
+
+.clear_button:hover {
+  background-color: white;
+}
+
+.grocery_item {
+  display: none;
+  align-items: center;
+  width: 400px;
+  font-size: 1.25em;
+  padding: 1em 1em;
+  border-radius: 10px;
+
+  background-color: rgba(255, 255, 255, 0.486);
+
+  transition: background-color 0.15s;
+}
+
+.gbtns {
+  display: flex;
+  gap: 0.5em;
+  margin-left: auto;
+}
+
+.gbtn {
+  margin-left: auto;
+  border: none;
+  background: none;
+}
+
+.gbtn img {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  transition: transform 0.25s;
+}
+
+.gbtn img:hover {
+  transform: scale(1.1) rotate(-360deg);
+}
+
+.grocery_box .clear_alert {
+  display: none;
+  position: absolute;
+  bottom: 75%;
+  font-size: 1.15em;
+  color: rgb(0, 189, 0);
+  padding: 0.25em 1em;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.grocery_box .clear_alert_2 {
+  display: none;
+  position: absolute;
+  bottom: 75%;
+  font-size: 1.15em;
+  color: rgb(219, 0, 0);
+  padding: 0.25em 1em;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.cross_off {
+  text-decoration: line-through;
+}
